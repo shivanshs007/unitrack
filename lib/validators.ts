@@ -16,3 +16,28 @@ export type FlightSearchState = {
     flightNumber?: string[];
   };
 };
+
+export const trainSearchSchema = z.object({
+  trainNumber: z
+    .string({ error: "Invalid type" })
+    .trim()
+    .regex(/^\d{5}$/, { message: "Train number must be 5 digits" }),
+});
+
+// The shape of the data we return to the UI
+export type TrainData = {
+  trainName: string;
+  trainNumber: string;
+  currentStation: string;
+  currentStatus: string; // e.g. "DEPARTED"
+  delay: number; // in minutes
+  lastUpdated: string;
+};
+
+export type TrainSearchState = {
+  message: string;
+  data?: TrainData; // Use the specific type
+  errors?: {
+    trainNumber?: string[];
+  };
+};

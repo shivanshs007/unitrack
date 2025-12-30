@@ -3,6 +3,7 @@ import { z } from "zod";
 const envSchema = z.object({
   DATABASE_URL: z.string().url(),
   AVIATION_STACK_KEY: z.string().min(1, "API Key missing"),
+  X_API_KEY: z.string().min(1, "Train API Key missing"),
   // Add other keys here later (e.g., CLOUDINARY_URL)
 });
 

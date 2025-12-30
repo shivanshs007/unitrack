@@ -1,9 +1,13 @@
-import React from 'react'
+import TrainSearchForm from "@/components/TrainSearchForm";
 
-function page() {
+export default function TrainPage() {
   return (
-    <div>page</div>
-  )
+    <div className="flex flex-col gap-6">
+      <div className="prose">
+        <h1>Live Train Status</h1>
+        <p className="text-base-content/70">Enter the 5-digit train number to check live running status.</p>
+      </div>
+      <TrainSearchForm />
+    </div>
+  );
 }
-
-export default page
