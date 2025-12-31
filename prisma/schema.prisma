@@ -19,3 +19,23 @@ model SearchLog {
   type      String
   createdAt DateTime @default(now())
 }
+
+model Room {
+  id        String        @id @default(uuid())
+  pin       String        @unique // The 6-digit code (e.g. "123456")
+  createdAt DateTime      @default(now())
+  expiresAt DateTime      // Auto-cleanup (e.g. 24 hours)
+  members   Participant[]
+}
+
+model Participant {
+  id        String   @id @default(uuid())
+  name      String
+  roomId    String
+  room      Room     @relation(fields: [roomId], references: [id])
+  
+  // Location Data
+  latitude  Float
+  longitude Float
+  lastSeen  DateTime @default(now()) // Used to filter out offline users
+}

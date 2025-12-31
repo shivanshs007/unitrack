@@ -7,7 +7,9 @@ export default function LandingPage() {
       <div className="flex gap-4">
         
         <Link href="/flights" className="btn btn-primary btn-lg">Track Flights</Link>
-        <Link href="/trains" className="btn btn-soft btn-lg">Track Trains</Link> 
+        <Link href="/trains" className="btn btn-soft btn-lg">Track Trains</Link>
+        <Link href="/person" className="btn btn-soft btn-lg">Track Person</Link> 
+
       </div>
     </main>
   );
